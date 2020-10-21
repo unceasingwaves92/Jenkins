@@ -7,32 +7,57 @@ pipeline {
       }
     }
 
-    stage('QA') {
+    stage('Smoke Test') {
+      steps {
+        echo 'Smoke UI Tests'
+        echo 'Smoke Tests (API)'
+      }
+    }
+
+    stage('Deploy to QA') {
+      steps {
+        echo 'Deploy to AWS QA Server'
+      }
+    }
+
+    stage('Integration Test') {
       parallel {
-        stage('UI Automation') {
+        stage('Integration Test (UI)') {
           steps {
-            echo 'This is UI Automation'
+            echo 'Run Full Selenium Tests'
           }
         }
 
-        stage('API Automatiion') {
+        stage('Integration Test (API)') {
           steps {
-            echo 'REST API Automation'
+            echo 'Run All API Tests'
           }
         }
 
         stage('Performance Testing') {
           steps {
-            echo 'JMeter Load testing'
+            echo 'Run All Performance Tests'
           }
         }
 
       }
     }
 
-    stage('Deploy') {
+    stage('Deploy to UAT') {
       steps {
-        echo 'Deploy to Prod'
+        echo 'Deploy to UAT AWS Server'
+      }
+    }
+
+    stage('Certify') {
+      steps {
+        echo 'Manual Certification Using Inputs'
+      }
+    }
+
+    stage('Deploy to Prod') {
+      steps {
+        echo 'Deploy to AWS Prod'
       }
     }
 
