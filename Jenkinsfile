@@ -52,6 +52,7 @@ pipeline {
     stage('Certify') {
       steps {
         echo 'Manual Certification Using Inputs'
+        input(message: 'Do you like to certify?', id: 'Certify', ok: 'Yes')
       }
     }
 
