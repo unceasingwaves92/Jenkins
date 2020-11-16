@@ -57,6 +57,12 @@ pipeline {
     }
 
     stage('Deploy to Prod') {
+      post {
+        always {
+          echo 'Send Email'
+        }
+
+      }
       steps {
         echo 'Deploy to AWS Prod'
         jiraComment(issueKey: 'SFO-107', body: 'This is a comment regarding the quality of the response.')
