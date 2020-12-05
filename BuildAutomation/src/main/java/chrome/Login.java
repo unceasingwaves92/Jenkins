@@ -19,6 +19,9 @@ public class Login {
                  // Read the param                             
 		String browser = System.getProperty("browser");
 		System.out.print(browser);
+		if(browser == null){
+			browser = "chrome";
+		}
 		if(browser.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
