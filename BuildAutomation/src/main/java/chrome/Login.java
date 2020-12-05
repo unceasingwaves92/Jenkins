@@ -1,4 +1,4 @@
-package chrome;
+	package chrome;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +16,7 @@ public class Login {
 
 	@Test
 	public void loginToLeafTaps() {
-
+                 // Read the param                             
 		String browser = System.getProperty("browser");
 		System.out.print(browser);
 		if(browser.equals("chrome")) {
