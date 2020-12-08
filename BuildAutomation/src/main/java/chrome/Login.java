@@ -39,6 +39,7 @@ public class Login {
 		driver.findElementById("password").sendKeys("crmsfa");
 		driver.findElementByClassName("decorativeSubmit").click();
 		driver.findElementByClassName("decorativeSubmit").click();
+		System.out.println("Successfully executed");
 		driver.close();
 	}
 
